@@ -3,6 +3,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Order = require('../../../models/Order');
 const ordersRouter = require('../../../routes/orders');
+const { validationResult } = require('express-validator');
+
+// Mock validation middleware for tests
+const mockValidationMiddleware = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      message: 'Validation error',
+      errors: errors.array()
+    });
+  }
+  next();
+};
 
 // Create test app
 const app = express();

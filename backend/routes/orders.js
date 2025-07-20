@@ -21,7 +21,7 @@ router.post('/', validateOrder, async (req, res) => {
 // Get all orders (admin only)
 router.get('/', async (req, res) => {
   try {
-    const orders = await Order.find({}).populate('user', 'name email');
+    const orders = await Order.find({});
     res.json(orders);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,13 +31,13 @@ router.get('/', async (req, res) => {
 // Get order by ID
 router.get('/:id', async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id).populate('user', 'name email');
+    const order = await Order.findById(req.params.id);
     if (!order) {
       return res.status(404).json({ message: 'Order not found' });
     }
     res.json(order);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Something went wrong!' });
   }
 });
 

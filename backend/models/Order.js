@@ -6,21 +6,33 @@ const orderSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  orderItems: [{
-    name: { type: String, required: true },
-    quantity: { type: Number, required: true },
-    price: { type: Number, required: true },
-    product: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
-      required: true
+  orderItems: {
+    type: [{
+      name: { type: String, required: true },
+      quantity: { type: Number, required: true },
+      price: { type: Number, required: true },
+      product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true
+      }
+    }],
+    required: true,
+    validate: {
+      validator: function(v) {
+        return Array.isArray(v) && v.length > 0;
+      },
+      message: 'Order must have at least one item'
     }
-  }],
+  },
   shippingAddress: {
-    address: { type: String, required: true },
-    city: { type: String, required: true },
-    postalCode: { type: String, required: true },
-    country: { type: String, required: true }
+    type: {
+      address: { type: String, required: true },
+      city: { type: String, required: true },
+      postalCode: { type: String, required: true },
+      country: { type: String, required: true }
+    },
+    required: true
   },
   paymentMethod: {
     type: String,
