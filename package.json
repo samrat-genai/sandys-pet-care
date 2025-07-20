@@ -1,0 +1,42 @@
+{
+  "name": "sandys-pet-care-solution",
+  "version": "1.0.0",
+  "description": "Sandy's Pet Care Solution - A full-stack e-commerce website for pet supplies",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && npm test && cd ../frontend && npm test",
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
+  "keywords": [
+    "ecommerce",
+    "pet-care",
+    "sandys",
+    "react",
+    "node.js",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/pet-shop-ecommerce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/pet-shop-ecommerce/issues"
+  },
+  "homepage": "https://github.com/your-username/pet-shop-ecommerce#readme"
+}
