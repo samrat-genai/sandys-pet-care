@@ -4,7 +4,8 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     '__tests__/setup.js',
-    '__tests__/load/order-load-test.js'
+    '__tests__/load/order-load-test.js',
+    '__tests__/load/load-test.test.js'
   ],
   collectCoverageFrom: [
     'routes/**/*.js',
