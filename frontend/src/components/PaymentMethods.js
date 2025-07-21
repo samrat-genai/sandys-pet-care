@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const PaymentMethods = ({ onSelectPayment, orderAmount }) => {
-  const { translations, language } = useLanguage();
+  const { language } = useLanguage();
   const [paymentMethods, setPaymentMethods] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +22,7 @@ const PaymentMethods = ({ onSelectPayment, orderAmount }) => {
     }
   };
 
+  /* Future payment integration - keeping for reference
   const initiateRazorpayPayment = async (method) => {
     try {
       // Create order on backend
@@ -107,7 +108,7 @@ const PaymentMethods = ({ onSelectPayment, orderAmount }) => {
       console.error('Payment error:', error);
       alert('Payment failed. Please try again.');
     }
-  };
+  }; */
 
   if (loading) {
     return <div style={{ padding: '20px' }}>Loading payment methods...</div>;

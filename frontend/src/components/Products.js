@@ -29,7 +29,7 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, [translations]);
 
   // Filter products when category or products change
   useEffect(() => {

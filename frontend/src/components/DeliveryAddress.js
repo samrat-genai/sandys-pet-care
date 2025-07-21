@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const DeliveryAddress = ({ onAddressSubmit, onBack }) => {
-  const { translations, language } = useLanguage();
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
